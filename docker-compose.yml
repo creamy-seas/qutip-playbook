@@ -1,0 +1,10 @@
+version: "3.7"
+services:
+  jupyter:
+    build: .
+    container_name: qutip-jupyter
+    command: bash -c "jupyter notebook --ip=0.0.0.0 --no-browser --allow-root --port 8080 --NotebookApp.token='' --NotebookApp.password=''"
+    ports:
+      - 8080:8080
+    volumes:
+      - ./:/qutip-simulator

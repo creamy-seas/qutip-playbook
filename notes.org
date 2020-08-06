@@ -1,0 +1,92 @@
+#+AUTHOR: Ilya Antonov
+#+TITLE: Notes on Qutip
+#+EMAIL: ilya.antonov@dreams-ai.com
+#+EXPORT_FILE_NAME:qutip
+#+OPTIONS: p:t
+#+OPTIONS: date:t
+#+OPTIONS: email:t
+#+OPTIONS: author:t
+#+OPTIONS: num:nil
+#+OPTIONS: title:t
+#+OPTIONS: toc:t
+#+OPTIONS: \n:t
+#+HTML_MATHJAX: align: center indent: 20em tagside: right font: Inconsolata
+* Table of libraries
+| *Library*    | Used for                    |
+|--------------+-----------------------------|
+| =numpy=      | Making arrays and matrices  |
+| =matplotlib= | Plotting graphs             |
+| =qutip=      | Running quantum simulations |
+
+#+BEGIN_SRC markdown
+  | **Library**  | Used for                    |
+  |--------------|-----------------------------|
+  | `numpy`      | Making arrays and matrices  |
+  | `matplotlib` | Plotting graphs             |
+  | `qutip`      | Running quantum simulations |
+#+END_SRC
+* Matrices to create
+|------------------------------+---------------------------------------------------------|
+| *Building object*            |                                                         |
+|------------------------------+---------------------------------------------------------|
+| =basis(N, e)=                | create *Ket* with =N= levels, with excited state at =e= |
+| =ket2dm(ket)=                | takes a *Ket* and constructs a density matrix           |
+| =charge(N, M)=               | make diagonal matrix from M..0..N                       |
+| =sigmax/y/z()=               | sigma operators                                         |
+| =qeye(N)=                    | identity matrix                                         |
+| =num(N)=                     | number operator (same as charge)                        |
+| =destroy(N)=                 | anhialation operator for an =N=-dimensional matrix      |
+|------------------------------+---------------------------------------------------------|
+| *Operating on objects*       |                                                         |
+|------------------------------+---------------------------------------------------------|
+| =.eigenstates()=             | to access, do [1][eigenstateNo]                         |
+| =.eigenenergies()=           |                                                         |
+| =.full()=                    | full matrix representation                              |
+| =.conj()=                    |                                                         |
+| =.groundstate()=             |                                                         |
+| =.matrix_element(ket,bra)=   | make sandwhich of operators                             |
+| =.norm()=                    |                                                         |
+| =.unit()=                    |                                                         |
+| =.transpose()=               |                                                         |
+| =.expm()=                    | exponential of the matrix                               |
+| =.dag()=                     | return adjoint                                          |
+|------------------------------+---------------------------------------------------------|
+| *Higher level functions*     |                                                         |
+| =expect(operator, state)=    |                                                         |
+| =tensor(component1, c2, ..)= |                                                         |
+|------------------------------+---------------------------------------------------------|
+* States
+#+BEGIN_SRC latex
+  \begin{equation}
+  \frac{\left|0\right\rangle + \left|1\right\rangle}{2} = \text{Normalized}
+  \big( \left|0\right\rangle + \left|1\right\rangle \big)
+  \end{equation}
+
+
+    \begin{equation}
+    \frac{\left|0\right\rangle + \left|1\right\rangle}{2} = \text{Normalized}
+    \big( \left|0\right\rangle + \left|1\right\rangle \big)
+  \end{equation}
+
+  a$^{\dag}a$^{\dag}$\left|0\right\rangle = \left|2\right\rangle
+
+  \begin{pmatrix}0\\1\end{pmatrix}
+
+  \left\langle 2\right| \times \left|2\right\rangle
+
+  a = qutip.tensor(qutip.destroy(N), qutip.qeye(2))
+  b = qutip.tensor(qutip.qeye(N), qutip.destroy(2))
+  sx = qutip.tensor(qutip.qeye(N), qutip.sigmax())
+  H = a.dag() * a + sx - 0.5 * (a * b.dag() + a.dag() * b)
+
+
+  \begin{equation}
+   \mathcal{H} = a^{\dagger}a \otimes \mathbf{I}_{b}  + \mathbf{I}_a \otimes \sigma_{xb} - \frac{1}{2} \left( a b^{\dagger} + a^{\dagger} b \right)
+  \end{equation}
+
+  \begin{equation}
+   S\left(\omega\right) = \int_{-\infty}^{+\infty}\langle A(\tau)B(0)\rangle e^{-i\omega\tau}d\tau
+  \end{equation}
+
+
+#+END_SRC
