@@ -87,6 +87,9 @@
   \begin{equation}
    S\left(\omega\right) = \int_{-\infty}^{+\infty}\langle A(\tau)B(0)\rangle e^{-i\omega\tau}d\tau
   \end{equation}
-
-
 #+END_SRC
+* Bloch simulations
+| =b = Bloch()=                                              | Sphere on which to plot |
+| =b.add_points([[x1, y1, z1], [x2, y2, z2], [x3, y3, z3]])= | Add points              |
+| =b.add_points([[x1, y1, z1], [x2, y2, z2], [x3, y3, z3]])= | Add vectors             |
+| =b.add_states([state1, state2, state3])=                   | Add states              |
