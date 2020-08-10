@@ -10,9 +10,7 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt
 
 # Jupyter notebook
-RUN pip install jupyterthemes
 RUN pip install jupyter_contrib_nbextensions && jupyter contrib nbextension install
-RUN jupyter nbextension enable hinterland/main
 RUN jupyter nbextension enable varInspector/main
 RUN pip install autopep8
 RUN jupyter nbextension enable code_prettify/autopep8
