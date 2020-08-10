@@ -87,6 +87,17 @@
   \begin{equation}
    S\left(\omega\right) = \int_{-\infty}^{+\infty}\langle A(\tau)B(0)\rangle e^{-i\omega\tau}d\tau
   \end{equation}
+
+
+  \begin{equation}}
+    \mathcal{H} = \Omega \sigma_z = \Omega \begin{pmatrix}1 & 0 \\ 0 & -1\end{pmatrix}
+  \end{equation}
+
+  \begin{equation}}
+    \left\langle\right|\sigma_i \left|\right\rangle = \left\langle \Psi \right| \hat{\sigma}\left|\Psi\right\rangle
+  \end{equation}
+
+  \noindent
 #+END_SRC
 * Bloch simulations
 | =b = Bloch()=                                              | Sphere on which to plot |

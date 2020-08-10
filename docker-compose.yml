@@ -3,8 +3,9 @@ services:
   jupyter:
     build: .
     container_name: qutip-jupyter
-    command: bash -c "jupyter notebook --ip=0.0.0.0 --no-browser --allow-root --port 8080 --NotebookApp.token='' --NotebookApp.password=''"
+    command: bash -c "jupyter notebook --ip=0.0.0.0 --no-browser --allow-root --port 8888 --NotebookApp.token='' --NotebookApp.password=''"
+    # command: bash -c "touch /var/tmp_log && tail -f /var/tmp_log"
     ports:
-      - 8080:8080
+      - 8888:8888
     volumes:
       - ./:/qutip-simulator

@@ -10,7 +10,7 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt
 
 # Jupyter notebook
-RUN pip install jupyter_contrib_nbextensions && jupyter contrib nbextension install
+RUN jupyter contrib nbextension install
 RUN jupyter nbextension enable varInspector/main
 RUN pip install autopep8
 RUN jupyter nbextension enable code_prettify/autopep8
@@ -23,5 +23,9 @@ RUN jupyter nbextension enable select_keymap/main
 RUN jupyter nbextension enable toggle_all_line_numbers/main
 RUN jt -t grade3 -cursc o -cursw 5 -T -cellw 80%
 COPY ./support_files/notebook.json /root/.jupyter/nbconfig/notebook.json
+
+RUN apt-get update
+RUN apt install -y ffmpeg
+
 
 COPY . .
