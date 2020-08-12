@@ -1,12 +1,19 @@
 ## Instuctions ##
 
-1. Install [**Docker desktop**](https://docs.docker.com/desktop/) and [**docker-compose**](https://docs.docker.com/compose/install/).
+1. Install [**Docker desktop**](https://docs.docker.com/desktop/)
 
-2. Launch docker
+2. Launch docker application
 
-3. Clone this directory and run
+3. Clone this directory - in the command line write
+```shell
+git clone https://github.com/creamy-seas/qutip-playbook
 ```
+
+4. Go to this directory and start the program. It will take 5 minutes to build.
+```
+cd qutip-playbook
+
 make jupyter
 ```
 
-4. Type in http://localhost:8888 in your browser and open the `simulation-playbook.ipynb` for an intercative tutorial.
+5. Type in http://localhost:8888 in your browser

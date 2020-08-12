@@ -29,3 +29,5 @@ RUN apt install -y ffmpeg
 
 
 COPY . .
+
+CMD echo "\n\033[1m\033[44m\033[33mSuccessfully built!\033[0m\n⮑  Now visit \033[4mhttp:localhost:8888\033[0m for simulations ⚛\n" && jupyter notebook --ip=0.0.0.0 --no-browser --allow-root --port 8888 --NotebookApp.token='' --NotebookApp.password=''
